@@ -1,0 +1,465 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>BMO SHOP</title>
+  <link rel="icon" type="image/png" href="https://i.imgur.com/tH9uEPK.png">
+  <meta name="description" content="BMO SHOP — магазин с доставкой по Нидерландам. Покупай быстро, удобно и стильно!">
+  <meta name="keywords" content="BMO, магазин, Нидерланды, купить, Telegram, фигурки, доставка">
+  <meta property="og:title" content="BMO SHOP — Магазин в Нидерландах">
+  <meta property="og:description" content="Купить удобно, быстро и стильно — только в BMO SHOP 🇳🇱">
+  <meta property="og:image" content="CHANGE LINK HERE">
+  <meta property="og:url" content="https://your-shop-link.com">
+  <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+<!-- Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-LG28R2DQC3"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-LG28R2DQC3'); // <-- сюда вставь свой код отслеживания
+</script>
+
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Press Start 2P', cursive;
+      background: url('https://i.imgur.com/nyjsFJK.jpeg') no-repeat center center fixed;
+      background-size: cover;
+      color: #00ffcc;
+    }
+
+    header {
+      background-color: rgba(0, 0, 0, 0.7);
+      height: 100px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .logo-image {
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%);
+      height: 80px;
+      object-fit: contain;
+      pointer-events: none;
+      user-select: none;
+      filter: drop-shadow(0 0 8px #00ffcc);
+    }
+
+    .language-switcher {
+      position: absolute;
+      top: 10px;
+      left: 20px;
+      z-index: 101;
+    }
+
+    .language-button {
+      background-color: rgba(0, 0, 0, 0.7);
+      color: #00ffcc;
+      border: 2px solid #00ffcc;
+      border-radius: 8px;
+      padding: 5px 10px;
+      font-size: 14px;
+      cursor: pointer;
+    }
+
+    .language-menu {
+      display: flex;
+      flex-direction: column;
+      position: absolute;
+      top: 40px;
+      left: 0;
+      background-color: rgba(0, 0, 0, 0.9);
+      border: 1px solid #00ffcc;
+      border-radius: 6px;
+      padding: 5px;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.3s ease;
+    }
+
+    .language-menu.show {
+      opacity: 1;
+      pointer-events: auto;
+    }
+
+    .language-menu button {
+      background: none;
+      border: none;
+      color: #00ffcc;
+      font-size: 14px;
+      cursor: pointer;
+      padding: 4px 8px;
+      text-align: left;
+    }
+
+    .info-section {
+      padding: 20px;
+      background-color: rgba(0, 0, 0, 0.6);
+      color: #ffffff;
+      text-align: center;
+    }
+
+    .info-section h2 {
+      font-size: 16px;
+    }
+
+    .info-section p {
+      font-size: 12px;
+      max-width: 600px;
+      margin: auto;
+    }
+
+    .shop-items-wrapper {
+      position: relative;
+      overflow: hidden;
+      padding: 40px 60px;
+    }
+
+    .shop-items {
+      display: flex;
+      transition: transform 0.5s ease;
+      gap: 30px;
+      scroll-behavior: smooth;
+      overflow-x: auto;
+      padding-bottom: 20px;
+    }
+
+    .shop-items::-webkit-scrollbar {
+      height: 8px;
+    }
+
+    .shop-items::-webkit-scrollbar-thumb {
+      background-color: #00ffcc;
+      border-radius: 4px;
+    }
+
+    .item {
+      flex: 0 0 auto;
+      background-color: #2b2b2b;
+      border: 4px solid #00ffcc;
+      border-radius: 12px;
+      width: 180px;
+      padding: 14px;
+      box-shadow: 0 0 12px #00ffcc;
+      text-align: center;
+      position: relative;
+    }
+
+    .item:hover {
+      box-shadow: 0 0 20px #00ffcc;
+    }
+
+    .item img {
+      width: 100%;
+      border-radius: 10px;
+      margin-bottom: 15px;
+    }
+
+    .item h2 {
+      font-size: 16px;
+      margin: 10px 0 5px;
+      color: #fff;
+    }
+
+    .item .description {
+      font-size: 10px;
+      margin-bottom: 8px;
+      color: #cccccc;
+    }
+
+    .item p {
+      margin: 0;
+      color: #00ffcc;
+      font-size: 14px;
+    }
+
+    .stars {
+      color: gold;
+      font-size: 14px;
+      margin: 6px 0;
+    }
+
+    .item-badge {
+      position: absolute;
+      top: 8px;
+      left: 8px;
+      background: #ff0066;
+      color: white;
+      font-size: 10px;
+      padding: 2px 6px;
+      border-radius: 6px;
+      font-weight: bold;
+    }
+
+    .buy-button {
+      display: inline-block;
+      margin-top: 10px;
+      background-color: #00ffcc;
+      color: #000;
+      padding: 10px 16px;
+      border-radius: 8px;
+      font-size: 12px;
+      text-decoration: none;
+      font-weight: bold;
+      animation: pulse 1.5s infinite alternate;
+    }
+
+    @keyframes pulse {
+      from { box-shadow: 0 0 10px #00ffcc; }
+      to { box-shadow: 0 0 20px #00ffcc, 0 0 40px #00ffcc; }
+    }
+
+    .scroll-button {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      background-color: rgba(0, 0, 0, 0.6);
+      border: 2px solid #00ffcc;
+      color: #00ffcc;
+      font-size: 28px;
+      cursor: pointer;
+      z-index: 10;
+      padding: 5px 10px;
+      font-family: 'Press Start 2P', cursive;
+      border-radius: 4px;
+    }
+
+    .scroll-button.left { left: 0; }
+    .scroll-button.right { right: 0; }
+
+    .footer-text {
+      padding: 80px 20px;
+      background-color: rgba(0, 0, 0, 0.7);
+      color: #ffffff;
+      text-align: center;
+      font-size: 12px;
+      line-height: 1.5;
+    }
+
+    .chat-button {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background-color: #00ffcc;
+      color: #000;
+      padding: 10px 16px 10px 12px;
+      border-radius: 30px;
+      font-size: 12px;
+      font-weight: bold;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      text-decoration: none;
+      box-shadow: 0 0 10px #00ffcc;
+      z-index: 1000;
+      animation: pulse 1.5s infinite alternate;
+      transition: background-color 0.3s;
+    }
+
+    .chat-button:hover {
+      background-color: #00bfa6;
+    }
+
+    .chat-button .chat-icon {
+      width: 20px;
+      height: 20px;
+    }
+
+    @keyframes fly {
+      0% { opacity: 1; transform: translate(-50%, -50%) scale(1); }
+      100% { opacity: 0; transform: translate(200%, -200%) scale(1.5); }
+    }
+
+    @media (max-width: 600px) {
+      .logo-image { height: 80px; }
+      .shop-items-wrapper { padding: 10px; }
+      .shop-items {
+        flex-direction: column;
+        align-items: center;
+        overflow-x: hidden;
+      }
+      .item {
+        width: 80%;
+        padding: 16px;
+      }
+      .scroll-button { display: none; }
+    }
+  .chat-character-sitting {
+  position: fixed;
+  bottom: 47px; /* расстояние над кнопкой */
+  right: 25px;  /* по правому краю */
+  width: 80px;
+  z-index: 1001; /* под кнопкой "Чат" */
+  pointer-events: none; /* чтобы не мешал клику */
+  transform: scaleX(-1);
+}
+.delivery-icon {
+  width: 120px;
+  margin-top: 30px;      /* ⬅️ добавь эту строку */
+  margin-bottom: 20px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  /* filter: drop-shadow(0 0 4px #00ffcc); */
+
+}
+
+ </style>
+</head>
+<body>
+  <header>
+    <img class="logo-image" src="https://i.imgur.com/9BTVxQQ.png" alt="BMO Shop Logo">
+  </header>
+
+  <div class="language-switcher">
+    <button class="language-button" onclick="toggleLanguageMenu()">🇷🇺</button>
+    <div id="language-menu" class="language-menu">
+      <button onclick="setLanguage('ru')">🇷🇺 Русский</button>
+      <button onclick="setLanguage('en')">🇬🇧 English</button>
+      <button onclick="setLanguage('nl')">🇳🇱 Nederlands</button>
+    </div>
+  </div>
+
+  <section class="info-section">
+    <h2 data-i18n="how-order">Как сделать заказ?</h2>
+    <p data-i18n="order-text">Я нахожусь в Нидерландах 🇳🇱. Чтобы оформить заказ — просто нажмите на кнопку «Купить» под товаром или напишите мне напрямую в Telegram. Мы быстро обсудим детали, оплату и доставку.</p>
+  </section>
+
+  <section class="shop-items-wrapper">
+    <button class="scroll-button left" onclick="scrollItems(-1)">&#9664;</button>
+    <div class="shop-items">
+      <!-- ТОВАР 1 -->
+      <div class="item">
+        <div class="item-badge">🔥 Хит</div>
+        <img src="https://i.imgur.com/AM2OnCU.jpeg" alt="Product 1">
+        <h2>Snus Iceberg Black</h2>
+        <div class="description">Мощный вкус мяты с холодным эффектом. Подходит для опытных пользователей.</div>
+        <p>€19.99</p>
+        <div class="stars">⭐⭐⭐⭐⭐</div>
+        <a class="buy-button" href="https://t.me/fixbao?text=Привет! Хочу заказать Snus Iceberg Black" target="_blank">Купить</a>
+      </div>
+
+      <!-- ТОВАР 2 -->
+      <div class="item">
+        <div class="item-badge">🔥 Хит</div>
+		<img src="https://i.imgur.com/AM2OnCU.jpeg" alt="Product 2">
+        <h2>Snus Mango Chill</h2>
+        <div class="description">Фруктовый манговый вкус с лёгкой прохладой. Идеально для новичков.</div>
+        <p>€17.50</p>
+        <div class="stars">⭐⭐⭐⭐</div>
+        <a class="buy-button" href="https://t.me/fixbao?text=Привет! Хочу заказать Snus Mango Chill" target="_blank">Купить</a>
+      </div>
+
+ <div class="item">
+        <img src="https://i.imgur.com/AM2OnCU.jpeg" alt="Product 2">
+        <h2>Snus Mango Chill</h2>
+        <div class="description">Фруктовый манговый вкус с лёгкой прохладой. Идеально для новичков.</div>
+        <p>€17.50</p>
+        <div class="stars">⭐⭐⭐⭐</div>
+        <a class="buy-button" href="https://t.me/fixbao?text=Привет! Хочу заказать Snus Mango Chill" target="_blank">Купить</a>
+      </div> 
+      
+       <div class="item">
+        <img src="https://i.imgur.com/AM2OnCU.jpeg"" alt="Product 2">
+        <h2>Snus Mango Chill</h2>
+        <div class="description">Фруктовый манговый вкус с лёгкой прохладой. Идеально для новичков.</div>
+        <p>€17.50</p>
+        <div class="stars">⭐⭐⭐⭐</div>
+        <a class="buy-button" href="https://t.me/fixbao?text=Привет! Хочу заказать Snus Mango Chill" target="_blank">Купить</a>
+      </div>
+      
+       <div class="item">
+        <img src="https://i.imgur.com/1n9ZfRZ.jpeg" alt="Product 2">
+        <h2>Snus Mango Chill</h2>
+        <div class="description">Фруктовый манговый вкус с лёгкой прохладой. Идеально для новичков.</div>
+        <p>€17.50</p>
+        <div class="stars">⭐⭐⭐⭐</div>
+        <a class="buy-button" href="https://t.me/fixbao?text=Привет! Хочу заказать Snus Mango Chill" target="_blank">Купить</a>
+      </div>
+      
+       <div class="item">
+        <img src="https://i.imgur.com/1n9ZfRZ.jpeg" alt="Product 2">
+        <h2>Snus Mango Chill</h2>
+        <div class="description">Фруктовый манговый вкус с лёгкой прохладой. Идеально для новичков.</div>
+        <p>€17.50</p>
+        <div class="stars">⭐⭐⭐⭐</div>
+        <a class="buy-button" href="https://t.me/fixbao?text=Привет! Хочу заказать Snus Mango Chill" target="_blank">Купить</a>
+      </div>
+      
+      <!-- ТОВАР 3 -->
+      <div class="item">
+        <img src="https://i.imgur.com/7kJPkYm.jpeg" alt="Product 3">
+        <h2>Snus Arctic Freeze</h2>
+        <div class="description">Экстремально мятный вкус с мгновенным охлаждением. Только для смелых.</div>
+        <p>€21.00</p>
+        <div class="stars">⭐⭐⭐⭐☆</div>
+        <a class="buy-button" href="https://t.me/fixbao?text=Привет! Хочу заказать Snus Arctic Freeze" target="_blank">Купить</a>
+      </div>
+    </div>
+    <button class="scroll-button right" onclick="scrollItems(1)">&#9654;</button>
+  </section>
+
+  <section class="footer-text">
+    <img src="https://i.imgur.com/FIUno4i.png" alt="Фургон доставки" class="delivery-icon">
+	<h2 data-i18n="delivery-title">О доставке</h2>
+    <p data-i18n="delivery-text">Мы доставляем товары по всей территории Нидерландов 🇳🇱. Все заказы обрабатываются в течение 3 часов, доставка занимает 1–3 рабочих дня. Возможен самовывоз по договорённости.</p>
+  </section>
+
+  <img src="https://i.imgur.com/TqXNodI.png" alt="Персонаж" class="chat-character-sitting">
+  <a href="https://linktr.ee/bmo_shop" target="_blank" class="chat-button">
+  <img src="https://cdn-icons-png.flaticon.com/512/2111/2111646.png" alt="Chat" class="chat-icon">
+  <span>LINKS</span>
+</a>
+
+  <script>
+    function toggleLanguageMenu() {
+      document.getElementById('language-menu').classList.toggle('show');
+    }
+
+    function setLanguage(lang) {
+      const translations = {
+        ru: {
+          'how-order': 'Как сделать заказ?',
+          'order-text': 'Я нахожусь в Нидерландах 🇳🇱. Чтобы оформить заказ — просто нажмите на кнопку «Купить» под товаром или напишите мне напрямую в Telegram.',
+          'delivery-title': 'О доставке',
+          'delivery-text': 'Мы доставляем товары по всей территории Нидерландов 🇳🇱. Все заказы обрабатываются в течение 3 часов, доставка занимает 1–3 рабочих дня.'
+        },
+        en: {
+          'how-order': 'How to place an order?',
+          'order-text': 'I\'m in the Netherlands 🇳🇱. To order, click the "Buy" button or message me on Telegram.',
+          'delivery-title': 'Delivery Info',
+          'delivery-text': 'We deliver across the Netherlands 🇳🇱. Orders are processed within 3 hours and arrive in 1–3 business days.'
+        },
+        nl: {
+          'how-order': 'Hoe plaats ik een bestelling?',
+          'order-text': 'Ik ben in Nederland 🇳🇱. Klik op "Kopen" of stuur mij een bericht op Telegram.',
+          'delivery-title': 'Verzendinformatie',
+          'delivery-text': 'Wij leveren in heel Nederland 🇳🇱. Bestellingen worden binnen 3 uur verwerkt, levering duurt 1–3 werkdagen.'
+        }
+      };
+
+      document.querySelector('.language-button').textContent =
+        lang === 'ru' ? '🇷🇺' : lang === 'en' ? '🇬🇧' : '🇳🇱';
+
+      for (let key in translations[lang]) {
+        const el = document.querySelector(`[data-i18n="${key}"]`);
+        if (el) el.textContent = translations[lang][key];
+      }
+
+      document.getElementById('language-menu').classList.remove('show');
+    }
+
+    function scrollItems(direction) {
+      const container = document.querySelector('.shop-items');
+      const scrollAmount = 260;
+      container.scrollLeft += direction * scrollAmount;
+    }
+  </script>
+</body>
+</html>
