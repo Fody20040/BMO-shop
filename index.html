@@ -23,14 +23,22 @@
   gtag('config', 'G-LG28R2DQC3'); // <-- сюда вставь свой код отслеживания
 </script>
 <style>
-    body {
-      margin: 0;
-      padding: 0;
-      font-family: 'Press Start 2P', cursive;
-      background: url('https://i.imgur.com/nyjsFJK.jpeg') no-repeat center center fixed;
-      background-size: cover;
-      color: #00ffcc;
-    }
+   body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Press Start 2P', cursive;
+  background: url('https://i.imgur.com/pEetz05.jpeg') no-repeat center center;
+  background-size: cover;
+  color: #00ffcc;
+}
+
+/* Только для телефонов (до 600px) делаем фон статичным */
+@media (max-width: 600px) {
+  body {
+    background-attachment: fixed;
+  }
+}
+
 
     header {
       background-color: rgba(0, 0, 0, 0.7);
