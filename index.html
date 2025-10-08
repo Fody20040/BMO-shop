@@ -283,21 +283,27 @@
       0% { opacity: 1; transform: translate(-50%, -50%) scale(1); }
       100% { opacity: 0; transform: translate(200%, -200%) scale(1.5); }
     }
+@media (max-width: 600px) {
+  .logo-image { height: 80px; }
+  .shop-items-wrapper { padding: 8px; }
 
-    @media (max-width: 600px) {
-      .logo-image { height: 80px; }
-      .shop-items-wrapper { padding: 10px; }
-      .shop-items {
-        flex-direction: column;
-        align-items: center;
-        overflow-x: hidden;
-      }
-      .item {
-        width: 80%;
-        padding: 16px;
-      }
-      .scroll-button { display: none; }
-    }
+  .shop-items {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+    justify-items: center;
+    overflow: visible;
+  }
+
+  .item {
+    width: 100%;
+    max-width: 145px; /* 🔧 уменьшили немного */
+    padding: 10px; /* 🔧 чуть меньше отступ */
+  }
+
+  .scroll-button { display: none; }
+}
+
   .chat-character-sitting {
   position: fixed;
   bottom: 47px; /* расстояние над кнопкой */
